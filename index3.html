@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=
+    Noto+Sans+TC:100,300,400,500,700,900&display=swap"
+    rel="stylesheet">
+
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC',sans-serif; 
+        }
+        html,body{
+            height: 100%;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            background-color: #003;
+        }
+        .wrap{
+            width: 1200px;
+            display: flex;
+            margin: auto;
+        }
+        .item{
+            width: 368px;
+            margin: 15px;
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            transform: translateY(0px);
+            transition: .5s;
+        }
+        .item img{
+            width: 100%;
+            vertical-align: middle;
+        }
+        .item h2{
+            border-bottom: 1px solid #888;
+            padding-bottom: .4em;
+            margin-bottom: .3em;
+            font-weight: 900;
+            transition: .25s;
+        }
+        .item p{
+            line-height: 1.6;
+            font-weight: 300;
+            transition: .25s;
+        }
+        .item .txt{
+            padding: 20px;
+            position: relative;
+        }
+        .item .txt::before{
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 0;
+            top: 0;
+            border-top: 50px solid transparent;
+            border-left: 184px solid #fff;
+            border-right: 184px solid #fff;
+            transform: translateY(-100%);
+            /* before after都需要搭配content才能使用 */
+        }
+        .item:hover{
+            transform: translateY(-50px);
+            
+        }
+        .item:hover .txt{
+            background-image: linear-gradient(0deg,#FEB85D,#FEB85D);
+        }
+        .item:hover .txt:before{
+            border-left: 184px solid #FEB85D;
+            border-right: 184px solid #FEB85D;
+        }
+        .item:hover h2{
+            color: #fff;
+            border-bottom: #fff;
+        }
+        .item:hover p{
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="item">
+            <img src="https://picsum.photos/300/300?random=10">
+            <div class="txt">
+                <h2>李昶昇</h2>
+                <p>是一名大學生，從真理大學轉學到世新大學的同學
+                很多人說我幹嘛浪費時間轉學又不轉好一點，但我可以
+                很老實地說，對!我就是知道我自己目前的能力在哪邊。
+                </p>
+
+            </div>
+        </div>
+        <div class="item">
+            <img src="https://picsum.photos/300/300?random=20">
+            <div class="txt">
+                <h2>永日</h2>
+                <p>這個綽號呢是我自己取的，由於本人的名子非常容易之被念錯
+                    每次點名都會變教授叫錯，但我也習慣了就把我的昶字拆開好了
+                    這樣子大家比較好念。
+                </p>
+
+            </div>
+
+        </div>
+        <div class="item">
+            <img src="https://picsum.photos/300/300?random=30">
+            <div class="txt">
+                <h2>CSS切版高手</h2>
+                <p>
+                    目前還是切版小菜雞，但我正在前往成為切版高手的路上
+                    現在畢業了，未來想專精的走前端工程師這條路。
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
