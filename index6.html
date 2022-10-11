@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>金魚系列 VI - 頁尾資訊區域</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
     <style type="text/css">
         *{
             margin: 0;
             padding: 0;
             list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
         }
         .main-footer{
-            padding: 150px 0 0;
-            background: linear-gradient(-20deg,#3f5494,
-            #08c7a5);
+            padding: 150px 0 0; /* 上邊 | 左邊右邊 | 下邊  */
+            background: linear-gradient(-20deg,#3f5494,#08c7a5);
         }
-        .main-footer .container{
+        .container{
             display: flex;
             width: 1200px;
             margin: auto;
@@ -28,6 +31,7 @@
         }
         .footer-item h4{
             font-size: 24px;
+            font-weight: 700;
             color: #fff;
             border-bottom: 1px dotted#fff;
             margin-bottom: .5em;
@@ -35,7 +39,7 @@
         }
         .footer-item nav{
             display: flex;
-            flex-direction: column;
+            flex-direction: column;/* 交錯軸（上到下） */
         }
         .footer-item nav a{
             color: #fff;
@@ -48,12 +52,12 @@
         }
         .footer-subs{
             display: flex;
-            flex-direction: column;
+            flex-direction: column;/* 交錯軸（上到下） */
         }
         .footer-subs form{
             display: flex;
             width: 100%;
-            margin: auto 0px;
+            margin: auto 0px; /* 垂直置中超常這樣子寫 */
         }
         .footer-subs input[type="text"],
         .footer-subs input[type="submit"]{
@@ -84,35 +88,35 @@
     <div class="main-footer">
         <div class="container">
             <div class="footer-item">
-                <h4>關於暴力課程</h4>
+                <h4>金魚系列 VI - 頁尾資訊區域</h4>
                 <nav>
-                    <a href="#">課程目標</a>
-                    <a href="#">辦學理念</a>
-                    <a href="#">課程宗旨</a>
+                    <a href="#">flex-direction 的原理</a>
+                    <a href="#">flex-grow</a>
+                    <a href="#">Google font 使用</a>
                 </nav>
             </div>
             <div class="footer-item">
-                <h4>課程列表</h4>
+                <h4>公司形象網站必切</h4>
                 <nav>
-                    <a href="#">暴力網頁入門班</a>
-                    <a href="#">RWD網頁深入理解</a>
-                    <a href="#">CSS3互動動畫設計</a>
-                    <a href="#">Bootstrap框架實務</a>
+                    <a href="#">不學起來不行</a>
+                    <a href="#">太常用到了</a>
+                    <a href="#">flex-grow 真好用</a>
+                    <a href="#">快趁機學起來當字典</a>
                 </nav>
             </div>
             <div class="footer-item">
                 <h4>服務項目</h4>
                 <nav>
-                    <a href="#">網站建置顧問</a>
-                    <a href="#">網站設計建置</a>
-                    <a href="#">網站規劃</a>
-                    <a href="#">企業教育訓練</a>
+                    <a href="#">異業結盟專區</a>
+                    <a href="#">異業都要結盟了</a>
+                    <a href="#">同業還不結盟</a>
+                    <a href="#">團結力量大</a>
                 </nav>
             </div>
             <div class="footer-item footer-subs">
                 <h4>訂閱電子報</h4>
                 <form>
-                    <input type="text" name="">
+                    <input type="text" placeholder="訂閱我猜你也不會看">
                     <input type="submit" value="訂閱">
                 </form>
             </div>

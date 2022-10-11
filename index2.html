@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>金魚系列-圖文互動</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
     <style type="text/css">
         *{
             margin: 0;
             padding: 0;
             List-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
         }
         html,body{
             height: 100%;
@@ -19,52 +22,57 @@
             display: flex;
             align-items: center;
         }
-        .wrap{
-            width: 100%;
-            display: flex;
+        .wrap{ 
+            /*讓 .wrap 內的元素填滿橫幅*/
+            width: 100vw;
+            display: flex; /* 讓下一層內的items橫向排列 */
+            margin: 0 auto;
         }
         .item{
-            width: 25%;
+            width: 25%;/* 使 .item 內的元素平均寬度，因為有四個，所以設定為 25%，使圖片填滿 item 寬度 25% 的空間。 */
             position: relative;
+            
+        }
+        .item:hover .txt{/*父層 hover ，子層做事情。*/
+            opacity: 1;
+        }
+        .item:hover h2:after{
+            width: 100%;
         }
         .item img{
             width: 100%;
             vertical-align: middle;
+            /* 圖片是行內元素，要使行內元素置中對齊 並且圖片因為置中對齊後會在該元素下方出現莫名的多餘空間，使用此語法可以把該空間消除。*/
         }
         .item .txt{
-            position: absolute;
+            position: absolute;/* 讓 .txt 的內容填滿整個 item，使四邊的距離都為 0，就會自動撐開四個角。 */
+            /*當元素的position設定absolute後，它就會往外層的元素找是否有position:relative | absolute | fixed | inherit(若繼承的是前面3個之一)的元素，若是都沒有，就會以該網頁頁面(<body>)的左上角為定位點。*/
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 20px;
-            background-color: rgba(0,0,0,.6);
+            padding: 0 50px;
+            background-color: rgba(#000,0.6);
+            /* 垂直置中對齊 */
             display: flex; 
-            justify-content: center;
-            flex-direction: column;
-            opacity: 0;
-            transition: opacity .5s;
-        }
-        .item:hover .txt{
-            opacity: 1;
+            justify-content: center;/* 用來控制Flex「水平對齊」的位置，也就是主軸方向以主軸的「起點」和「終點」來做依據 */
+            flex-direction: column;/* 交錯軸（上到下） */
+            opacity: 0;/* 先文字一開始透明 */
+            transition: opacity 0.6s;/* opacity 透明度設定，使一開始文字為透明，寫入漸變效果，等等要對應設定 hover 後的效果。*/
         }
         .item h2{
-            font-size: 28px;
-            color: #ff0;
-            font-weight: 500;
+            font-size: 32px;
+            color: yellowgreen;
         }
         .item h2:after{
             content: '';
             display: block;
             width: 0%;
             height: 2px;
-            margin: 10px 0;
-            background-color: #ff0;
-            transition: width .5s .5s;
+            margin: 5px 0;
+            background-color: #fff;
+            transition: width .5s .3s;/* 使寬度漸變時間為 0.5s delay 0.3s */
 
-        }
-        .item:hover h2:after{
-            width: 100%;
         }
         .item p{
             font-size: 18px;
@@ -77,31 +85,31 @@
 <body>
     <div class="wrap">
         <div class="item">
-            <img src="https://picsum.photos/500/400?random=5">
+            <img src="https://picsum.photos/500/400?random=50">
             <div class="txt">
-                <h2>網頁畫面怎麼切</h2>
-                <p>不會切你就超遜</p>
+                <h2>Amos 金魚系列</h2>
+                <p>圖文互動卡片</p>
             </div>
         </div>
         <div class="item">
             <img src="https://picsum.photos/500/400?random=20">
             <div class="txt">
-                <h2>網頁畫面怎麼切2</h2>
-                <p>不會切你就超遜2</p>
+                <h2>這麼常見的模板網頁</h2>
+                <p>聽說這一定要會</p>
             </div>
         </div>
         <div class="item">
             <img src="https://picsum.photos/500/400?random=10">
             <div class="txt">
-                <h2>網頁畫面怎麼切3</h2>
-                <p>不會切你就超遜3</p>
+                <h2>是不是似曾相似</h2>
+                <p>太多網站會使用到</p>
             </div>
         </div>
         <div class="item">
             <img src="https://picsum.photos/500/400?random=30">
             <div class="txt">
-                <h2>網頁畫面怎麼切4</h2>
-                <p>不會切你就超遜4</p>
+                <h2>不一定要會這個切版</h2>
+                <p>不會切你就超遜</p>
             </div>
         </div>
     </div> 

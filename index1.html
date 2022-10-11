@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <title>Document</title>
+    <title>金魚系列-圖文滿版練習</title>
     <style type="text/css">
         *{
             margin:0;
@@ -18,77 +18,64 @@
             height: 100vh;
             background-color: #ccc;
             background: 
-                linear-gradient(115deg,	 #d5928a 50%,
-                    transparent 50%) left center / 100%
-                    100%,
-                url(https://picsum.photos/300/300?random=10)
-                right center / auto 100%;
-
+                linear-gradient(115deg,	 #FFD306 50%,transparent 50%) left center / 100% 100%,
+                url("https://images.unsplash.com/photo-1594046243098-0fceea9d451e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80") right center / auto 100%;
+                /* 漸層：(角度，背景色，第一個漸層色空間，第二個漸層色空間) */ 
+                /* 多重背景寫法  url(背景連結) background-position /圖片寬高 */
             ;
-
         }
-        .container{
-            width: 1200px;
-            height: 100vh;
-            margin: auto;
-        }
-        .banner-txt{
+        .container {
+            width: 100%;
+            max-width: 1280px; /* RWD 偷懶方式 */
             height: 100%;
-            display: flex; 
-            /* 讓子層的項目會橫向排列 */
-            flex-direction: column;
-            /* 控制flex的方向變直向 */
-            justify-content: center;
-            /* 讓子層的項目靠中間 */
-            align-items: flex-start;
-            /* flex-wrap: wrap; : 我要換列*/
+            margin: 0 auto;
         }
-        .banner-txt h1{
-            font-size: 80px;
-            
-            border-bottom: 1px solid #333;
+        .bannerText { /* 文字排版 */
+            height: 100%;
+            display: flex;/* 使下一層容器裡的items橫向排列 */
+            flex-direction: column; /* 交錯軸（上到下） */
+            justify-content: center; /* 用來控制Flex「水平對齊」的位置，也就是主軸方向以主軸的「起點」和「終點」來做依據 */
+            align-items: flex-start; /* 和jusitfy-content的用法類似，但它是用來控制「垂直對齊」的位置，也就是交錯軸方向 */
         }
-        .banner-txt h1 small{
+        .bannerText h1 {
+            font-size: 50px;
+            border-bottom: 1px solid #000;
+            color: red;
+        }
+        .bannerText h1 small{
             display: block;
-            font-size: 35px;
-            text-align: right;
+            color: #000;
         }
-        .banner-txt h2{
-            font-size: 35px;
-            text-align: right;
-        }
-        .banner-txt p{
+        .bannerText h2 {
             font-size: 30px;
+            color: red;
         }
+        .bannerText p {
+            font-size: 20px;
+        }
+        
+        
+        
 
     </style>
 
 </head>
 <body>
-    
     <div class="banner">
         <div class="container">
-            <div class="banner-txt">
-                <h1>Playlist MV
-                    <small>
-                        婁峻碩 SHOU
-                    </small>
-                </h1>
-                <h2>李沐 Moon Lee</h2>
-                <p>
-                    寫一首也許你會愛上的情歌，
-                <br>
-                    在你的自動播放清單的情歌。
-                <br>
-                    也許有天會聽到這首情歌
-                <br>
-                    Please tell me how you doing
-                <br>
-                    How you doing doing
-                </p>
-            </div>
+          <div class="bannerText">
+            <h1>
+              金魚系列-圖文滿版練習
+              <small>跟著 AMOS 來切版</small>
+            </h1>
+            <h2>使用到的技巧</h2>
+            <p>
+              使用到 CSS reset,inline & block ,flex-direction 的原理
+              <br />
+              漸層色彩與多重背景撰寫方式,100vh 螢幕高度!
+            </p>
+          </div>
         </div>
-    </div>
-    
+      </div>
 </body>
 </html>

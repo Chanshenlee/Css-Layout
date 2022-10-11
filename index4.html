@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>金魚系列-交錯漂浮板</title>
     <link href="https://fonts.googleapis.com/css?family=
     Noto+Sans+TC:100,300,400,500,700,900&display=swap"
     rel="stylesheet">
@@ -16,51 +16,57 @@
         }
         body{
             padding: 100px 0;
-            background: linear-gradient(20deg,
-            #3d5493,#1aa2a0)fixed center center / 100% 100%;
+            background: linear-gradient(20deg,#3d5493,#1aa2a0) fixed /* 可以讓你的背景圖片永遠的固定在畫面當中 */
+            center center / 100% 100%;
         }
         .wrap{
             width: 1200px;
             margin: auto;
+            
         }
         .item{
             display: flex;
-            align-items: center;
+            align-items: center; /* 和jusitfy-content的用法類似，但它是用來控制「垂直對齊」的位置，也就是交錯軸方向 */
             margin-bottom: 70px;
             background-color: #ccc;
             font-family: 'Noto Sans TC',sans-serif;
         }
-        .item h2{
+        .txt h2{
             font-weight: 900;
         }
-        .item p{
+        .txt p{
             font-weight: 500;
         }
-        .item .pic{
+        .item .pic{ 
             width: 55%;
-            flex-shrink: 0;
+            flex-shrink: 0;/* 讓flex的收縮值為０ */
         }
         .item .pic img{
             width: 100%;
+            /* 不然圖片(左）跟文字（右）中間會有空白 */
             vertical-align: middle;
+            /* 圖片下方都會出現一個莫名空白，使用 vertical-align: middle;，這個技巧出現很多次，學起來很受用，這樣圖片就不會有莫名空白囉! */
         }
         .item .txt{
             width: 55%;
-            background-color: #fa8;
-            flex-shrink: 0;
+            background-color: #fa8; /* 被後面的:nth-child覆蓋掉了 */
+            flex-shrink: 0; /* 讓flex的收縮值為０ */
+            /* 因爲flex本身有收縮的效果，當圖片加文字的width超果100%，理當會壞掉。 */
             padding: 50px 30px;
-            box-sizing: border-box;
+            box-sizing: border-box;/* box-sizing屬性允許我們在元素的總寬度和高度中包含填充和邊框。 */
             position: relative;
-            z-index: 1;
+            z-index: 1; /* 讓文字能在上層 */
+
         }
-        .item > :first-child{
-            margin-right: -10%;
+        .item > :first-child{ /* 第一層裡面的第一個物件first-child*/
+            /* 小常識：原始碼後面的物件會蓋掉前面的 */
+            margin-right: -10%;/* 為了讓文字可以壓在圖片上，這邊使用子代選取器，選擇第一層第一個物件(看是圖片或是文字)，讓期 margin 為負值，就有交錯的效果。 */
         }
-        .item:nth-child(1) .txt{
+        .item:nth-child(1) .txt{/* 設定第一列的色彩效果，可以覆蓋掉原本的background-color */
             background-color: rgba(240, 174, 193, .8);
         }
         .item:nth-child(2) .txt{
-            background: color rgba(42, 253, 208, .8);
+            background-color :rgba(42, 253, 208, .8);
         }
         .item:nth-child(3) .txt{
             background-color: rgba(254, 201, 121, .8);
@@ -78,19 +84,16 @@
                 <img src="https://picsum.photos/600/350?random=10">
             </div>
             <div class="txt">
-                <h2>昶昇都懂得切版</h2>
-                <p>金魚的記憶只有7秒，但其實這是錯誤的
-                ，科普一下你就會知道金魚的記憶力其實不只有
-                七秒，所以，你有幾秒的記憶力。
+                <h2>金魚切版系列 IV - 交錯漂浮版</h2>
+                <p>「產品介紹」或是「關於我」常用的交錯漂浮版，一定要學起來!
+                    好像會使用到絕對定位還是相對定位，一定要使用 Flex，新學了 flex-shrink。
                 </p>
             </div>
         </div>
         <div class="item">
             <div class="txt">
-                <h2>昶昇都懂得切版</h2>
-                <p>金魚的記憶只有7秒，但其實這是錯誤的
-                ，科普一下你就會知道金魚的記憶力其實不只有
-                七秒，所以，你有幾秒的記憶力。
+                <h2>新手一定要寫註解</h2>
+                <p>不然一堆一樣的東西，回過頭來維護或寫到一半都會忘記為什麼會這樣...所以加註解非常重要，不要覺得自己記憶力很強啊!其實都很不管用的！
                 </p>
             </div>
             <div class="pic">
@@ -102,19 +105,18 @@
                 <img src="https://picsum.photos/600/350?random=30">
             </div>
             <div class="txt">
-                <h2>昶昇都懂得切版</h2>
-                <p>金魚的記憶只有7秒，但其實這是錯誤的
-                ，科普一下你就會知道金魚的記憶力其實不只有
-                七秒，所以，你有幾秒的記憶力。
+                <h2>有點難又不會太難</h2>
+                <p>區塊尺寸怎麼算、 Box-sizing 是甚麼、 CSS relative 相對定位、
+                    網頁的色彩原理、 flex-direction 的原理、 「>」子代選取器、:nth-child
+                    選取器教學
                 </p>
             </div>
         </div>
         <div class="item">
             <div class="txt">
-                <h2>昶昇都懂得切版</h2>
-                <p>金魚的記憶只有7秒，但其實這是錯誤的
-                ，科普一下你就會知道金魚的記憶力其實不只有
-                七秒，所以，你有幾秒的記憶力。
+                <h2>:nth-child 選取器</h2>
+                <p>CSS3 新增的選取器，一定要學會，好厲害啊!! 只要架構清楚都不用再寫 class
+                    來綁定跟套用效果啦! HTML 標籤變得好乾淨!
                 </p>
             </div>
             <div class="pic">

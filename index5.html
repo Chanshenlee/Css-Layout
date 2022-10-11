@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>金魚系列切版 V - 超通用橫式版面</title>
     <link href="https://fonts.googleapis.com/css?family=
     Noto+Sans+TC:100,300,400,500,700,900&display=swap"
     rel="stylesheet">
@@ -16,8 +16,12 @@
         }
         .wrap{
             height: 100vh;
+            /* 
+            height:100vh == height:100%
+            但是當元素裡面沒有內容的時候，100vh會被撐開而100%不會
+            */
             display: flex;
-            align-items: center;
+            align-items: center;/* 和jusitfy-content的用法類似，但它是用來控制「垂直對齊」的位置，也就是交錯軸方向 */
             background: linear-gradient(-30deg,#fdaecb,#e7597f,#fe8556);
             /* 常用來做漸層色 0deg 從下到上 */
 
@@ -34,7 +38,11 @@
             display: flex;
             background-color: #fff;
             border: 1px solid #888;
-            box-shadow: 0 10px 30px rgba(160, 0, 0, .5);
+            box-shadow: 0 10px 30px rgba(11, 4, 4, 0.5); 
+            /*
+            該box-shadow屬性將一個或多個陰影附加到一個元素。
+            box-shadow: 水平位移距離 垂直位移距離 模糊半徑 擴散距離 顏色 內陰影; 
+            */
             font-family: 'Noto Sans TC',sans-serif;
         }
         .item .pic{
@@ -43,36 +51,32 @@
         .item .pic img{
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover;/* 使圖片跟容器大小一致，不支援 iE */
         }
         .item .txt{
             width: 50%;
             padding: 20px;
-            box-sizing: border-box;
+            box-sizing: border-box;/* box-sizing屬性允許我們在元素的總寬度和高度中包含填充和邊框。 */
             display: flex;
-            flex-direction: column;
+            flex-direction: column;/* 交錯軸（上到下） */
             
         }
         .item .txt h2{
             font-weight: 1500;
-            margin-bottom: .4em;
+            margin-bottom: 0.5em;
         }
         .item .txt p{
             font-weight: 1500;
         }
         .item .txt .btn{
-            line-height: 1.5em;
+            line-height: 1.2em; /* 行高 */
             border: 1px solid #ccc;
             padding: 0 1em;
-            align-self: flex-end;
+            align-self: flex-end; /* 靠右對齊 */
+            border-radius: 200px;/* 圓角設定 */
+            margin-top: auto; /* 自動推到底部 */
             text-decoration: none;
-            border-radius: 200px;
-            margin-top: auto;
             color: #aaa;
-        }
-        .item .txt .btn{
-            background-color: #ccc;
-            color: #fff;
         }
     </style>
 </head>
@@ -96,9 +100,9 @@
                     <img src="https://picsum.photos/600/350?random=11">
                 </div>
                 <div class="txt">
-                   <h2>金魚都能懂得網頁切版</h2> 
-                   <p>沒想到切版竟然如此簡單，以往
-                    的困難迎刃而解，技巧原來這般單純。
+                   <h2>我就菜，學CSS一定要加上註解。
+                   </h2> 
+                   <p>避免我以後維護找不到。對自己跟公司負責任就可以了!在小事上忠心，在大事上必忠心！
                     </p>
                     <a href="#" class="btn">more</a>
                 </div>
@@ -108,9 +112,8 @@
                     <img src="https://picsum.photos/600/350?random=12">
                 </div>
                 <div class="txt">
-                   <h2>金魚都能懂得網頁切版</h2> 
-                   <p>沒想到切版竟然如此簡單，以往
-                    的困難迎刃而解，技巧原來這般單純。
+                   <h2>好版面，不切嗎? 切了有利無弊</h2> 
+                   <p>看一次，切一次，再寫部落格筆記一次，不會也難!自己做功課才是學會了。
                     </p>
                     <a href="#" class="btn">more</a>
                 </div>
