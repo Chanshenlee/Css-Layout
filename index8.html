@@ -4,77 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>導覽列的變化</title>
+    <title>金魚系列 VIII - 網站麪包屑</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
     <style type="text/css">
         *{
             margin: 0;
             padding: 0;
             list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
         }
-        .main-header{
-            background: linear-gradient(0deg,#cc4380,#fb6c75);
+        body{
+	        background-image: linear-gradient(90deg, #333, #555);
         }
-        .main-header .container{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
+        .wrap{
+	        padding: 10px 0;
+	        background: #26ff93;
+	        /* box-shadow: 0px 5px 5px hsla(260,100%,20%,.5); */
         }
-        .main-header .logo{
-            width: 100px;
+        .breadcrumb{
+	        width: 90%;
+	        margin: auto;
+	        display: flex;
         }
-        .main-header .logo img{
-            width: 100%;
-            vertical-align: middle;
+        .breadcrumb li{
+	        padding: 0 20px;
         }
-        .main-header .main-nav{
-            margin: auto;
-            display: flex;
+        .breadcrumb a{
+	        text-decoration: none;
+	        color: #fff;
+	        font-family: 'Noto Sans TC', sans-serif;
         }
-        .main-header .main-nav a{
-            text-decoration: none;
-            color: #fff;
-            padding: 5px 1em;
-            position: relative;
-            transform: translateY(10px);
-            transform: .3s;
+        .breadcrumb a:hover,.breadcrumb li:last-child a{
+	        color: #ff0;
         }
-        .main-header .main-nav a:hover{
-            transform: translateY(-10px);
+        .breadcrumb li + li{
+	        padding-left: 0;
         }
-        .main-header .main-nav a:after{
-            content: '';
-            position: absolute;
-            left: 50%;
-            right: 50%;
-            bottom: -5px;
-            height: 0;
-            border-bottom: 1px solid #fff;
-            transition: .3s;
+        .breadcrumb li + li:before{
+	        content: '>';
+	        color: #fff;
+	        margin-right: 20px;
         }
-        .main-header .main-nav a:hover:after{
-            left: 0;
-            right: 0;
-        }
-        
-
     </style>
 </head>
 <body>
-    <header class="main-header">
-        <div class="container">
-            <a href="#" class="logo">
-                <img src=".\pic\666.PNG" alt="CSS coke | CSS 可樂" width="150" height="130">
-            </a>
-            <nav class="main-nav">
-                <a href="#">金魚都能懂系列</a>
-                <a href="#">暴力網頁入門系列</a>
-                <a href="#">CSS可樂系列</a>
-                <a href="#">RWD原來醬子系列</a>
-            </nav>
-        </div>
-    </header>
+    <div class="wrap">
+        <ol class="breadcrumb">
+            <li><a href="#">CSS可樂</a></li>
+            <li><a href="#">CSS教學</a></li>
+            <li><a href="#">金魚系列</a></li>
+            <li><a href="#">切版技巧</a></li>
+            <li><a href="#">Flex</a></li>
+            <li><a href="#">麵包屑</a></li>
+        </ol>
+    </div>
+    
 </body>
 </html>
