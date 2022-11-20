@@ -4,76 +4,112 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>金魚系列 VII 導覽列</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
     <style type="text/css">
         *{
             margin: 0;
             padding: 0;
             list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        body{
+            box-sizing: border-box;/* box-sizing:border-box : 在一個元素上設置，padding 和 border 包含在寬度和高度中 */
         }
         .main-header{
-            background: linear-gradient(0deg,#fe70d8,#3713c1);
+            background-image: linear-gradient(90deg, #333, #555);
         }
-        .main-header .container{
+        .container{
+            display: flex;
+            align-items: center;/* 和jusitfy-content的用法類似，但它是用來控制「垂直對齊」的位置，也就是交錯軸方向 */
+            padding: 20px;
+            max-width: 1200px;/* 寬度最大不要超過1200px */
+            margin: 0 auto;/* 剩下的空間自動分佈 */
+        }
+        .container a{
+            text-decoration: none;
+            color: #26ff93;
+            padding: 5px 1em;
+            font-weight: 300;
+        }
+        .logo{
+            width: 100px;
+            margin-right: 1em;
             display: flex;
             align-items: center;
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
         }
-        .main-header .logo{
-            width: 100px;
-        }
-        .main-header .logo img{
+        .logo img{
             width: 100%;
-            vertical-align: middle;
+            vertical-align: middle; /* 圖片是行內元素，要使行內元素置中對齊 並且圖片因為置中對齊後會在該元素下方出現莫名的多餘空間，使用此語法可以把該空間消除。*/
+            padding-right: 0.5em;
         }
-        .main-header .main-nav{
-            margin: auto;
+        .logo span{
+            font-size: 26px;
+            font-weight: 500;
         }
-        .main-header .main-nav a{
+        .main-nav{
+            display: flex;
+            align-items: center;
+            margin: auto;/* 在這裡把剩餘的空間分配給main-nav作用 */
+        }
+        .item{
+            flex-grow: 1;
+            padding: 20px;
+            border-bottom: 5px solid transparent;
+            transition: 0.3s;
+        }
+        .item:hover{
+            border-bottom: 5px solid #26ff93;
+        }
+        .main-nav a{
             text-decoration: none;
-            color: #fff;
+            color: #26ff93;
             padding: 5px 1em;
             position: relative;
-            transform: translateY(10px);
-            /* transform: .3s; */
+            transform: translateY(0px);
+            transition: 0.3s;
+            font-weight: 300;
         }
-        .main-header .main-nav a:hover{
-            transform: translateY(-10px);
+        .main-nav a:hover{
+            transform: translateY(-5px);
         }
-        .main-header .main-nav a:after{
+        .main-nav a:after{
             content: '';
             position: absolute;
             left: 50%;
             right: 50%;
             bottom: -5px;
             height: 0;
-            border-bottom: 1px solid #fff;
-            transition: .3s;
+            border-bottom: 1px solid #26ff93;
+            transition: 0.3s;
         }
-        .main-header .main-nav a:hover:after{
+        .main-nav a:hover:after{
             left: 0;
             right: 0;
         }
-        .main-header .header-search{
+        .header-search{
             display: flex;
+            align-items: center;
+            margin-left: auto;
         }
-        .main-header .header-search button,
-        .main-header .header-search input{
+        .header-search button,.header-search input{
             border: none;
-            background-color: #fff;
-            padding: 5px 10px;
-        }
-        .main-header .header-search button:focus,
-        .main-header .header-search input:focus{
             outline: none;
+            height: 30px;
+            background-color: #ffffff;
         }
-        .main-header .header-search button{
-            border-radius: 0 200px 200px 0;
+
+        .header-search button{
+            width: 20%;
+            border-radius: 0 100px 100px 0;
+            cursor: pointer;
         }
-        .main-header .header-search input{
-            border-radius: 200px 0 0 200px;
+        .header-search input{
+            padding-left: 12px;
+            width: 80%;
+            border-radius: 100px 0 0 100px;
         }
 
     </style>
@@ -82,17 +118,19 @@
     <header class="main-header">
         <div class="container">
             <a href="#" class="logo">
-                <img src=".\pic\666.PNG" alt="CSS coke | CSS 可樂" width="150" height="130">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/991px-Spotify_icon.svg.png">
+                <span>Spotify</span>
             </a>
+            <!-- nav : 導覽超連結區塊 -->
             <nav class="main-nav">
-                <a href="#">金魚都能懂系列</a>
-                <a href="#">暴力網頁入門系列</a>
-                <a href="#">CSS可樂系列</a>
-                <a href="#">RWD原來醬子系列</a>
+                <a href="#" class="item">金魚系列 VII</a>
+                <a href="#" class="item">每個網站都有的導覽列</a>
+                <a href="#" class="item">選項一定要有互動</a>
+                <a href="#" class="item">這個不會不行</a>
             </nav>
             <form class="header-search">
-                <input type="search" name="" id="">
-                <button><i class="fa fa-search"></i></button>
+                <input type="search" placeholder="找不到東西的搜尋列">
+                <button><i class="fas fa-search"></i></i></button>
             </form>
         </div>
     </header>
